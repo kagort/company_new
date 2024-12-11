@@ -168,6 +168,22 @@ def avg_girls_salary (departments): #11 Посчитать среднюю зар
         return avg_girls_salary
 avg_g_s = avg_girls_salary(departments)
 print(f"Средняя зарплата по девочкам каомпании: {avg_g_s}")
+print()
+
+def unique_names_with_vowels (departments): #12
+    unique_names = set()
+    vowels = "aeiouAEIOU"
+    for item in departments:
+        for employer in item["employers"]:
+            first_name = employer["first_name"]
+            if first_name[-1] in vowels:
+                unique_names.add(first_name)
+    return "\n".join(sorted(unique_names))
+
+name_list = unique_names_with_vowels(departments)
+print(f"Список имён, заканчивающихся на гласную: {name_list}")
+
+
 
 
 
