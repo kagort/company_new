@@ -27,8 +27,12 @@ taxes = [
     {"department": "BizDev Department", "name": "sales", "value_percents": 20},
 ]
 
-# Преобразовал списки словарей в датасет .csv c разделителем "," corrected_employee_data.csv
+# Преобразовал списки словарей в датасет .csv c разделителем ",".
 # Также для упрощения дальнейших рассчетов ввел в таблицу ещё один столбец "Taxed Salary (RUB)", в котором отобразились значения реальных зарплат по отделу после удержания налогов.
+# Для анализа использовал два файла:
+# corrected_employee_data.csv -  просто от зарплаты отнимается 13%
+#updated_employee_data.csv - столбец Taxed Salary (RUB)=Salary (RUB)−(Salary (RUB)×(vat+hiring+sales)/100).
+
 
 import pandas as pd
 pd.set_option('display.max_rows', None)
