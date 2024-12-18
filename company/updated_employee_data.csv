@@ -1,0 +1,10 @@
+Department,First Name,Last Name,Position,Salary (RUB),Taxed Salary (RUB),vat,hiring,sales
+HR department,Daniel,Berger,Junior HR,50000.0,43500.0,13.0,0.0,0.0
+HR department,Michelle,Frey,Middle HR,75000.0,65250.0,13.0,0.0,0.0
+HR department,Kevin,Jimenez,Middle HR,70000.0,60900.0,13.0,0.0,0.0
+HR department,Nicole,Riley,HRD,120000.0,104400.0,13.0,0.0,0.0
+IT department,Christina,Walker,Python dev,80000.0,64800.0,13.0,6.0,0.0
+IT department,Michelle,Gilbert,JS dev,85000.0,68850.0,13.0,6.0,0.0
+IT department,Caitlin,Bradley,Teamlead,950000.0,769500.0,13.0,6.0,0.0
+IT department,Brian,Hartman,CTO,130000.0,105300.0,13.0,6.0,0.0
+BizDev Department,,,,,,0.0,0.0,20.0
