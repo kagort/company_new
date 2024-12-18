@@ -28,18 +28,27 @@ taxes = [
 ]
 
 def dep_names_output (departments): # 1. Вывести названия всех отделов
+    dep_names = []
     for item in departments:
         dep_name = item["title"]
-        print(dep_name)
-
+        dep_names.append(dep_name)
+    return dep_names
 all_dep_names = dep_names_output(departments)
+str_all_d_n = "\n".join(all_dep_names)
+print(str_all_d_n)
 print()
 
+
 def employers_names_output (departments): #2. Вывести имена всех сотрудников компании.
+    all_employers_names = []
     for item in departments:
         for employer in item["employers"]:
-            print(f"{employer['first_name']} {employer['last_name']}")
+            employer_name = employer['first_name'] + " " + employer['last_name']
+            all_employers_names.append(employer_name)
+    return all_employers_names
 all_employers_names = employers_names_output(departments)
+str_all_e_n = "\n".join(all_employers_names)
+print(str_all_e_n)
 print()
 
 def dep_employers_names(departements): # 3. Вывести имена всех сотрудников компании с указанием отдела, в котором они работают.
@@ -49,6 +58,20 @@ def dep_employers_names(departements): # 3. Вывести имена всех �
             print(f"{employer['first_name']} {employer['last_name']}")
         print()
 all_dep_emp_names = dep_employers_names(departments)
+
+def dep_employers_names2(departements):# 3. Вывел имена всех сотрудников компании с указанием отдела, в котором они работают через возвращение функции
+    result = []
+    for item in departements:
+        result.append(item['title'])
+        for employer in item["employers"]:
+            result.append(f"{employer['first_name']} {employer['last_name']}")
+    return result
+dep_emp_n = dep_employers_names2(departments)
+print("\n".join(dep_emp_n))
+print()
+
+
+
 
 def emp_names_biggest_salary (departments): # 4. Вывести имена всех сотрудников компании, которые получают больше 100к.
     emp_with_biggest_salary = []
@@ -80,16 +103,18 @@ print(result_str)
 print()
 
 def dep_costs_per_month (departments): # 6. Посчитать, сколько денег в месяц уходит на каждый отдел – и вывести вместе с названием отдела.
+    dep_costs = {}
     for item in departments:
         total_salary = 0
         for employer in item["employers"]:
             total_salary += employer["salary_rub"]
-        print(f"В месяц уходит на {item['title']}: {total_salary} рублей")
-
+        dep_costs[item["title"]] = total_salary
+    return dep_costs
 dep_total_salary = dep_costs_per_month(departments)
-print(dep_total_salary)
+for department, total in dep_total_salary.items(): # Долго не мог понять, как вывести словарь в виде строки. В итоге GPT подсказал метод items для распаковки словаря. Так можно?
+    print(f"В месяц уходит на {department}: {total} рублей")
 print()
-#(Как убрать None в выводе?)
+
 
 def min_salary_by_dep (departments): #7 Вывести названия отделов с указанием минимальной зарплаты в нём
     salaries = []
@@ -101,7 +126,7 @@ def min_salary_by_dep (departments): #7 Вывести названия отде
 minimorum = min_salary_by_dep(departments)
 print(minimorum)
 print()
-#(Как убрать None в выводе?)
+
 
 def min_max_avg_salary_by_dep(departments): #8.Вывести названия отделов с указанием минимальной, средней и максимальной зарплаты в нём.
     salaries = []
